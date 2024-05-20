@@ -10,7 +10,7 @@ public class Main {
         ArrayList arrayList = new ArrayList();
         HashMap hashMap = new HashMap();
         TreeMap treeMap = new TreeMap();
-         String[] palabrasclave = ManejadorArchivosGenerico.leerArchivo("./src/listado-general_desordenado.txt");
+        String[] palabrasclave = ManejadorArchivosGenerico.leerArchivo("./src/listado-general_desordenado.txt");
         String[] palabrasBuscar = ManejadorArchivosGenerico.leerArchivo("./src/listado-general_palabrasBuscar.txt");
         for (String p : palabrasclave) {
                 // insertar la palabra p en el trie
@@ -18,6 +18,11 @@ public class Main {
                 // insertar la palabra p en el arrayList
                 // insertar la palabra p en el hashMap
                 // insertar la palabra p en el treeMap
+            trie.insertar(p);
+            linkedList.add(p);
+            arrayList.add(p);
+            hashMap.put(p, p);
+            treeMap.put(p,p);
         }
         Medible[] medibles = new Medible[5];
         int i = 0;
