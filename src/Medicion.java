@@ -46,4 +46,6 @@ public class Medicion {
     public void print(){
         System.out.println(this.toString());
     }
+
+
 }
