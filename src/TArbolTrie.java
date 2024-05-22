@@ -19,6 +19,9 @@ public class TArbolTrie implements Serializable{
             raiz.imprimir();
         }
     }
+    public TNodoTrie getRaiz() {
+        return this.raiz;
+    }
 
     public LinkedList<String> predecir(String prefijo) {
         if (raiz != null) {

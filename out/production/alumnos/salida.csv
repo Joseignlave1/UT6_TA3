@@ -5,5 +5,3 @@ MedicionBuscarTrie,13745000,10450571
 MedicionBuscarHashMap,5076000,1328896
 MedicionBuscarTreeMap,21198500,1328898algoritmo,tiempo,memoria
 MedicionPredecirTrie,483188700,10450571
-algoritmo,tiempo,memoria
-MedicionPredecirTrie,233473100,10450571

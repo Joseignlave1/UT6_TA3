@@ -24,22 +24,29 @@ public class Main {
             hashMap.put(p, p);
             treeMap.put(p,p);
         }
+        /*
+
+         */
         Medible[] medibles = new Medible[5];
         int i = 0;
-        medibles[i++] = new MedicionBuscarLinkedList(linkedList);
-        medibles[i++] = new MedicionBuscarArrayList(arrayList);
-        medibles[i++] = new MedicionBuscarTrie(trie);
-        medibles[i++] = new MedicionBuscarHashMap(hashMap);
-        medibles[i++] = new MedicionBuscarTreeMap(treeMap);
+//        medibles[i++] = new MedicionBuscarLinkedList(linkedList);
+//        medibles[i++] = new MedicionBuscarArrayList(arrayList);
+//        medibles[i++] = new MedicionBuscarTrie(trie);
+//        medibles[i++] = new MedicionBuscarHashMap(hashMap);
+//        medibles[i++] = new MedicionBuscarTreeMap(treeMap);
+          medibles[i++] = new MedicionPredecirTrie(trie);
         Medicion mi;
 	i = 0;
         Object[] params = {REPETICIONES, palabrasBuscar};
-        String[] lineas = new String[6];
+        String[] lineas = new String[2];
 		lineas[i++] = "algoritmo,tiempo,memoria";
 		for (Medible m: medibles){
+            if(m == null) {
+                break;
+            }
             mi= m.medir(params);
 			mi.print();
-			lineas[i++] = mi.getTexto()+","+mi.getTiempoEjecucion().toString()+","+mi.getMemoria().toString();
+			lineas[i++] = mi.getTexto()+","+ mi.getTiempoEjecucion().toString()+","+mi.getMemoria().toString();
 			
         }
         
