@@ -9,20 +9,25 @@ public class MedicionPredecirLinkedList extends Medible{
     }
 
     @Override
-    public void ejecutar(Object... args) {
-        if (args.length < 1 || !(args[0] instanceof String)) {
-            throw new IllegalArgumentException("Se requiere una cadena de entrada para la función autocompletar");
-        }
+    public void ejecutar(Object... params) {
+        int repeticion = (int) params[0];
+        String[] prefijos = (String[]) params[1];
 
-        String input = (String) args[0];
-        List<String> results = new LinkedList<>();
-
-        for (String element : linkedList) {
-            if (element.startsWith(input)) {
-                results.add(element);
+        for (int i = 0; i < repeticion; i++) {
+            for (String prefijo : prefijos) {
+                autocompletar(prefijo);
             }
         }
-           
+    }
+
+    private List<String> autocompletar(String prefijo) {
+        List<String> resultados = new LinkedList<>();
+        for (String palabra : linkedList) {
+            if (palabra.startsWith(prefijo)) {
+                resultados.add(palabra);
+            }
+        }
+        return resultados;
     }
     
     @Override
