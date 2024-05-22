@@ -3,7 +3,17 @@ MedicionBuscarLinkedList,25232994200,937264
 MedicionBuscarArrayList,12353824700,937274
 MedicionBuscarTrie,13745000,10450571
 MedicionBuscarHashMap,5076000,1328896
+<<<<<<< HEAD
 MedicionBuscarTreeMap,21198500,1328898algoritmo,tiempo,memoria
 MedicionPredecirTrie,483188700,10450571
 algoritmo,tiempo,memoria
 MedicionPredecirTrie,233473100,10450571
+=======
+MedicionBuscarTreeMap,21198500,1328898
+algoritmo,tiempo,memoria
+MedicionPredecirLinkedList,1205950600,937264
+algoritmo,tiempo,memoria
+MedicionPredecirLinkedList,971404400,937264
+>>>>>>> aa865b528586268d12459c41f99ffc6d09a224f9
+algoritmo,tiempo,memoria
+MedicionPredecirLinkedList,139370600,937264

@@ -24,20 +24,22 @@ public class Main {
             hashMap.put(p, p);
             treeMap.put(p,p);
         }
-        /*
 
-         */
-        Medible[] medibles = new Medible[5];
+
+
+        Medible[] medibles = new Medible[1];
         int i = 0;
-//        medibles[i++] = new MedicionBuscarLinkedList(linkedList);
-//        medibles[i++] = new MedicionBuscarArrayList(arrayList);
-//        medibles[i++] = new MedicionBuscarTrie(trie);
-//        medibles[i++] = new MedicionBuscarHashMap(hashMap);
-//        medibles[i++] = new MedicionBuscarTreeMap(treeMap);
-          medibles[i++] = new MedicionPredecirTrie(trie);
+        // medibles[i++] = new MedicionBuscarLinkedList(linkedList);
+        // medibles[i++] = new MedicionBuscarArrayList(arrayList);
+        // medibles[i++] = new MedicionBuscarTrie(trie);
+        // medibles[i++] = new MedicionBuscarHashMap(hashMap);
+        // medibles[i++] = new MedicionBuscarTreeMap(treeMap);
+
+        medibles[i++] = new MedicionPredecirLinkedList(linkedList);
+
         Medicion mi;
-	i = 0;
-        Object[] params = {REPETICIONES, palabrasBuscar};
+	    i = 0;
+        Object[] params = {REPETICIONES, "cas"};
         String[] lineas = new String[2];
 		lineas[i++] = "algoritmo,tiempo,memoria";
 		for (Medible m: medibles){
