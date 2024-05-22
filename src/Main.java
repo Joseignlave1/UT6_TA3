@@ -4,8 +4,8 @@ public class Main {
 
     private static final int REPETICIONES = 100;
 
-    public static void main(String[] args){
-        TArbolTrie trie = new TArbolTrie();      
+    public static void main(String[] args) {
+        TArbolTrie trie = new TArbolTrie();
         LinkedList linkedList = new LinkedList();
         ArrayList arrayList = new ArrayList();
         HashMap hashMap = new HashMap();
@@ -13,19 +13,17 @@ public class Main {
         String[] palabrasclave = ManejadorArchivosGenerico.leerArchivo("./src/listado-general_desordenado.txt");
         String[] palabrasBuscar = ManejadorArchivosGenerico.leerArchivo("./src/listado-general_palabrasBuscar.txt");
         for (String p : palabrasclave) {
-                // insertar la palabra p en el trie
-                // insertar la palabra p en el linkedList
-                // insertar la palabra p en el arrayList
-                // insertar la palabra p en el hashMap
-                // insertar la palabra p en el treeMap
+            // insertar la palabra p en el trie
+            // insertar la palabra p en el linkedList
+            // insertar la palabra p en el arrayList
+            // insertar la palabra p en el hashMap
+            // insertar la palabra p en el treeMap
             trie.insertar(p);
             linkedList.add(p);
             arrayList.add(p);
             hashMap.put(p, p);
-            treeMap.put(p,p);
+            treeMap.put(p, p);
         }
-
-
 
         Medible[] medibles = new Medible[1];
         int i = 0;
@@ -35,23 +33,26 @@ public class Main {
         // medibles[i++] = new MedicionBuscarHashMap(hashMap);
         // medibles[i++] = new MedicionBuscarTreeMap(treeMap);
 
-        medibles[i++] = new MedicionPredecirLinkedList(linkedList);
+        // medibles[i++] = new MedicionPredecirLinkedList(linkedList);
+
+        medibles[i++] = new MedicionPredecirHashMap(hashMap);
 
         Medicion mi;
-	    i = 0;
-        Object[] params = {REPETICIONES, "cas"};
+        i = 0;
+        // String prefijo = "cas";
+        Object[] params = { REPETICIONES, palabrasBuscar };
         String[] lineas = new String[2];
-		lineas[i++] = "algoritmo,tiempo,memoria";
-		for (Medible m: medibles){
-            if(m == null) {
+        lineas[i++] = "algoritmo,tiempo,memoria";
+        for (Medible m : medibles) {
+            if (m == null) {
                 break;
             }
-            mi= m.medir(params);
-			mi.print();
-			lineas[i++] = mi.getTexto()+","+ mi.getTiempoEjecucion().toString()+","+mi.getMemoria().toString();
-			
+            mi = m.medir(params);
+            mi.print();
+            lineas[i++] = mi.getTexto() + "," + mi.getTiempoEjecucion().toString() + "," + mi.getMemoria().toString();
+
         }
-        
-		 ManejadorArchivosGenerico.escribirArchivo("./src/salida.csv",lineas);
+
+        ManejadorArchivosGenerico.escribirArchivo("./src/salida.csv", lineas);
     }
 }
