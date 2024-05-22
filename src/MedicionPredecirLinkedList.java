@@ -1,8 +1,8 @@
-import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 
 public class MedicionPredecirLinkedList extends Medible{
-    private LinkedList linkedList;
+    private LinkedList<String> linkedList;
 
     public MedicionPredecirLinkedList(LinkedList linkedList) {
         this.linkedList = linkedList;
@@ -10,13 +10,19 @@ public class MedicionPredecirLinkedList extends Medible{
 
     @Override
     public void ejecutar(Object... args) {
-        int repeticion = (int) args[0];
-        int[] indices = (int[]) args[1];
-        for(int i = 0; i < repeticion; i++){
-            for(int indice : indices){
-                linkedList.get(indice);
+        if (args.length < 1 || !(args[0] instanceof String)) {
+            throw new IllegalArgumentException("Se requiere una cadena de entrada para la función autocompletar");
+        }
+
+        String input = (String) args[0];
+        List<String> results = new LinkedList<>();
+
+        for (String element : linkedList) {
+            if (element.startsWith(input)) {
+                results.add(element);
             }
         }
+           
     }
     
     @Override
