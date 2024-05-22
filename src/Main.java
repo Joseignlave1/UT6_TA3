@@ -42,7 +42,7 @@ public class Main {
 			lineas[i++] = mi.getTexto()+","+mi.getTiempoEjecucion().toString()+","+mi.getMemoria().toString();
 			
         }
-		
+        
 		 ManejadorArchivosGenerico.escribirArchivo("./src/salida.csv",lineas);
     }
 }
